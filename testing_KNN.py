@@ -15,7 +15,7 @@ classes = [0, 1]
 
 for neig in range(1, 21):
     results = []
-    for iters in range(500):
+    for iters in range(200):
         classifier = KNeighborsClassifier(n_neighbors=neig)
         indices = np.random.choice(num_records, size=int(0.8 * num_records), replace=False)
         remaining_indices = np.setdiff1d(np.arange(num_records), indices)
