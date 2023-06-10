@@ -43,6 +43,11 @@ for iters in range(10, 30):
     Y_pred = classifier.predict(predict)
     multi_results[:, iters] = Y_pred
 
+with open('multi_results.csv', 'w', newline='') as file:
+    writer = csv.writer(file, delimiter=';')
+    for row in np.transpose(multi_results):
+        writer.writerow(row)
+
 for i in range(multi_results.shape[0]):
     multi_results[i, :] = np.round(np.mean(multi_results[i, :]))
 
