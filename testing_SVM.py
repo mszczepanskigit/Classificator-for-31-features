@@ -16,12 +16,12 @@ kernel_type = 'rbf'
 
 to_plot = []
 
-for gam in [0.15]:
+for gam in 10*[0.15]:
     for C_value in [2.3]:
         results = []
         for iters in range(100):
             classifier = SVC(C=C_value, kernel=kernel_type, gamma=gam)
-            indices = np.random.choice(num_records, size=int(0.9 * num_records), replace=False)
+            indices = np.random.choice(num_records, size=int(0.8 * num_records), replace=False)
             remaining_indices = np.setdiff1d(np.arange(num_records), indices)
             data_80 = data[indices]
             class_80 = class_[indices]
